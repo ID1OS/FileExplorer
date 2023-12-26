@@ -6,8 +6,10 @@ sudo apt install python3-pip
 pip3 install click
 pip3 install pygame
 Dest_Dir="/usr"
-sudo mkdir $Dest_Dir/FileExplorer
+sudo rm -rvf $Dest_Dir/FileExplorer
+sudo mkdir -pv $Dest_Dir/FileExplorer
 Dest_Dir=$Dest_Dir"/FileExplorer"
+
 sudo chmod +x $Dest_Dir
 sudo chmod +r $Dest_Dir
 sudo cp -r src $Dest_Dir
@@ -22,6 +24,8 @@ sudo chmod +x $Dest_Dir/system
 sudo chmod +x $Dest_Dir/src/*
 sudo chmod +r $Dest_Dir/system/*
 sudo chmod +r $Dest_Dir/images/*
+sudo chmod +w $Dest_Dir/system/*
+sudo chmod +w $Dest_Dir/images/*
 cd $Home_dir
 cat >> .bashrc << "EOF"
 alias FileExplorer="python3 /usr/FileExplorer/src/desktp_env.py"
