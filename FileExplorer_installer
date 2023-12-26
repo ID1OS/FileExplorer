@@ -24,7 +24,7 @@ sudo chmod +r $Dest_Dir/system/*
 sudo chmod +r $Dest_Dir/images/*
 cd $Home_dir
 cat >> .bashrc << "EOF"
-alias FileExplorer="python3 /usr/FileExplorer/src/main.py"
+alias FileExplorer="python3 /usr/FileExplorer/src/desktp_env.py"
 EOF
 source .bashrc
 echo "FileExplorer installed successfully!"
