@@ -14,15 +14,11 @@ def run_env():
     desktop = Desktop(screen, settings,".")
     side_screen = SideScreen(screen)
     login_screen = LoginScreen(screen)
-    cursor_image = pygame.image.load("images/cursor.png")
-    new_cursor_image = pygame.transform.scale(cursor_image, (20, 20))
     while True:
         if not settings.ID1FS:
             pygame.display.set_caption(desktop.path)
         else:
-            result = subprocess.run("whoami",capture_output = True, text = True,check = True)
-            home_directory = "/home/" + result.stdout.strip()
-            fs = f"{home_directory}/.temp/.FS/ID1FS"
+            fs = f"{settings.home_dir}/.id1fs/ID1FS"
             pygame.display.set_caption(desktop.path.replace(fs,""))
         df.check_events(desktop, settings,side_screen, login_screen)
         df.moving_icons(settings)

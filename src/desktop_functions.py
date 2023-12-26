@@ -192,13 +192,11 @@ def check_events(desktop, settings, side_screen, login_screen):
                     settings.selected_file = None
             mouse_x, mouse_y = pygame.mouse.get_pos()
             if side_screen.before_rect.collidepoint(mouse_x,mouse_y):
-                result = subprocess.run("whoami",capture_output = True, text = True,check = True)
-                home_directory = "/home/" + result.stdout.strip()
                 path = desktop.path
                 if not settings.ID1FS:
                     desktop.path = os.path.dirname(path)
                     desktop.Initialize_desktop()
-                elif f"{home_directory}/.id1fs/ID1FS" in os.path.dirname(path):
+                elif f"{settings.home_dir}/.id1fs/ID1FS" in os.path.dirname(path):
                     desktop.path = os.path.dirname(path)
                     desktop.Initialize_desktop()
             if side_screen.home_rect.collidepoint(mouse_x,mouse_y):
@@ -404,7 +402,7 @@ def draw_screen(screen, settings, desktop, side_screen, login_screen):
                 break
     desktop.blitme()
     if settings.hover_count > 400 and settings.changing_name == False:
-        font_path = "font.ttf"
+        font_path = f"{settings.installing_path}/system/font.ttf"
         font = pygame.font.Font(font_path, 10)
         name_image = font.render(settings.name, True, settings.name_color, settings.name_bg)
         name_rect = name_image.get_rect()
@@ -412,7 +410,7 @@ def draw_screen(screen, settings, desktop, side_screen, login_screen):
         name_rect.left = side_screen.side_rect.right
         screen.blit(name_image, name_rect)
     if settings.changing_name:
-        font_path = "font.ttf"
+        font_path = f"{settings.installing_path}/system/font.ttf"
         font = pygame.font.Font(font_path, 10)
         name_image = font.render(settings.name, True, settings.name_color, settings.name_bg)
         name_rect = name_image.get_rect()

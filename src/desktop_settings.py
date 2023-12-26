@@ -6,7 +6,7 @@ class Settings():
     def __init__(self):
         """Initialize the game's settings."""
         # Screen settings
-        self.installing_path = "/usr/"
+        self.installing_path = "/usr/FileExplorer"
         self.screen_width = 800
         self.screen_height = 620
         self.bg_color = (230, 230, 230)

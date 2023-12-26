@@ -6,6 +6,7 @@ class File():
     """A class that contains the settings of a folder."""
     def __init__(self, path):
         """Initialize a folder."""
+        self.installing_path = "/usr/FileExplorer"
         self.path = path
         self.name = os.path.basename(path)
         self.reduced_name = self.name[:10]
@@ -14,7 +15,7 @@ class File():
         self.pos = None
         self.text_color = (30, 30, 30)
         self.bg_color = (230, 230, 230)
-        self.font_path = "font.ttf"
+        self.font_path = f"{self.installing_path}/system/font.ttf"
         self.font = pygame.font.Font(self.font_path, 9)
         self.get_name_rect()
 
@@ -120,6 +121,6 @@ class File():
             resized_image = pygame.transform.scale(original_image, (64, 64))
             return resized_image
         else:
-            with open("system/files.json") as f:
+            with open(f"{self.installing_path}/system/files.json") as f:
                 files = json.load(f)
-            return pygame.image.load(os.path.join("images",files[type]))
+            return pygame.image.load(os.path.join(f"{self.installing_path}/images",files[type]))

@@ -6,7 +6,7 @@ class Desktop():
     """A class to manage the desktop environment."""
     def __init__(self, screen, settings, path):
         """Initialize the desktop environment."""
-        pygame.init()
+        self.installing_path = "/usr/FileExplorer"
         self.screen = screen
         self.screen_rect = self.screen.get_rect()
         self.settings = settings
@@ -17,7 +17,7 @@ class Desktop():
         self.files = []
         self.icon_places = []
         self.icons = []
-        with open("system/log","w"):
+        with open(f"{self.installing_path}/system/log","w"):
             pass
         self.Initialize_desktop()
 

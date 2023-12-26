@@ -2,6 +2,7 @@ import pygame
 
 class LoginScreen:
     def __init__(self, screen):
+        self.installing_path = "/usr/FileExplorer"
         self.screen = screen
         self.screen_rect = screen.get_rect()
         self.bg_color = (60,70,120)
@@ -9,7 +10,7 @@ class LoginScreen:
         self.text_color = (0, 0, 0)
         self.rect = pygame.Rect(0, 0, 300, 200)
         self.rect.center = self.screen_rect.center
-        self.font = pygame.font.Font("font.ttf", 20)
+        self.font = pygame.font.Font(f"{self.installing_path}/system/font.ttf", 20)
         self.field_username_rect = pygame.Rect(0, 0, 200, 30)
         self.field_password_rect = pygame.Rect(0, 0, 200, 30)
         self.username = ""

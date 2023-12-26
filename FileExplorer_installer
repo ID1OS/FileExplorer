@@ -1,0 +1,30 @@
+#!/bin/bash
+echo "Installing FileExplorer..."
+sudo apt-get install git
+sudo apt install python3
+sudo apt install python3-pip
+pip3 install click
+pip3 install pygame
+Dest_Dir="/usr"
+sudo mkdir $Dest_Dir/FileExplorer
+Dest_Dir=$Dest_Dir"/FileExplorer"
+sudo chmod +x $Dest_Dir
+sudo chmod +r $Dest_Dir
+sudo cp -r src $Dest_Dir
+sudo chmod +r $Dest_Dir/src
+sudo chmod +x $Dest_Dir/src
+sudo cp -r images $Dest_Dir
+sudo chmod +r $Dest_Dir/images
+sudo chmod +x $Dest_Dir/images
+sudo cp -r system $Dest_Dir
+sudo chmod +r $Dest_Dir/system
+sudo chmod +x $Dest_Dir/system
+sudo chmod +x $Dest_Dir/src/*
+sudo chmod +r $Dest_Dir/system/*
+sudo chmod +r $Dest_Dir/images/*
+cd $Home_dir
+cat >> .bashrc << "EOF"
+alias FileExplorer="python3 /usr/FileExplorer/src/main.py"
+EOF
+source .bashrc
+echo "FileExplorer installed successfully!"
