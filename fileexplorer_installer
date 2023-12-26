@@ -22,10 +22,15 @@ sudo cp -r system $Dest_Dir
 sudo chmod +r $Dest_Dir/system
 sudo chmod +x $Dest_Dir/system
 sudo chmod +x $Dest_Dir/src/*
+ls -l $Dest_Dir/src/
 sudo chmod +r $Dest_Dir/system/*
+ls -l $Dest_Dir/system/
 sudo chmod +r $Dest_Dir/images/*
+ls -l $Dest_Dir/images/
 sudo chmod +w $Dest_Dir/system/*
+ls -l $Dest_Dir/system/
 sudo chmod +w $Dest_Dir/images/*
+ls -l $Dest_Dir/system/
 cd $Home_dir
 cat >> .bashrc << "EOF"
 alias FileExplorer="python3 /usr/FileExplorer/src/desktp_env.py"
