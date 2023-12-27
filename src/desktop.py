@@ -23,7 +23,7 @@ class Desktop():
 
 
     def Initialize_desktop(self):
-        with open("system/log","a") as f:
+        with open(f"{self.installing_path}/system/log","a") as f:
             f.write(self.path+"\n")
         self.folders = []
         self.files = []
