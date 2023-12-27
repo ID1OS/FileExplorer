@@ -3,8 +3,8 @@ echo "Installing FileExplorer..."
 sudo apt-get install git
 sudo apt install python3
 sudo apt install python3-pip
-pip3 install click
-pip3 install pygame
+sudo apt install python3-click
+sudo apt install python3-pygame
 Dest_Dir="/usr"
 sudo rm -rvf $Dest_Dir/FileExplorer
 sudo mkdir -pv $Dest_Dir/FileExplorer
