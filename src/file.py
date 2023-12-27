@@ -35,12 +35,16 @@ class File():
         extension = self.name.split(".")[-1]
         extension = self.name.split(".")[-1]
         if "." in self.name:
-            if extension == "py":
-                return "code " + self.path
-            if extension == "rar":
-                return "start winrar " + self.path
+            if extension in ["py","c","java","c","cpp","sh","html","css","js","php","json","csv"]:
+                return "code " + f"{self.path}"
             if extension in ["mp4","mkv","avi", "mov", "wmv", "flv", "webm", "3gp", "ogg", "ogv", "m4v", "mpg", "mpeg", "mov", "rm", "rmvb", "asf"]:
-                return "start vlc " + self.path
+                return "vlc " + f"{self.path}"
+            if extension in ["jpg", "jpeg","png", "bmp", "tiff", "tif", "raw","svg", "webp", "heif","ico","pnm","pgm","ppm","pbm","hdr","exr","jfif"]:
+                return "ImageViewer " + f"{self.path}"
+            if extension in ["mp3","wav","aac","ogg","wma","flac","alac","aiff","dsd","pcm","mp2","m4a","m4b","m4p","m4r","mid","midi","xmf","rtttl","rtx","ota","imy","ogg","oga","spx","opus","amr","awb","3gp","mp4","m4v","mp4v","3g2","3gpp","3gpp2","avi","divx","flv","mkv","mk3d","mov","mp4","mpeg","mpg","mpe","webm","wmv","asf","ts","m2ts","m2t","mts","mxf","ogv","ogm","qt","rm","rmvb","vob","ifo"]:
+                return "vlc " + f"{self.path}"
+            if extension == "txt":
+                return "gedit " + f"{self.path}"
             
     
     def get_file_type(self):

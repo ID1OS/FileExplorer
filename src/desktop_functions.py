@@ -173,8 +173,8 @@ def check_events(desktop, settings, side_screen, login_screen):
                         desktop.path = settings.selected_folder.path
                         settings.selected_folder = None
                         desktop.Initialize_desktop()
-                    if str(settings.selected_file) == "File": 
-                        command = "gedit " + settings.selected_file.path
+                    if str(settings.selected_file) == "File" and settings.login == False: 
+                        command = settings.selected_file.get_command()
                         subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
                 except PermissionError:
                             print("Permission denied.")
